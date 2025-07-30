@@ -37,7 +37,7 @@ export const login = (req, res) => {
     return res.status(400).json({ message: "Username/Email and password are required" });
   }
 
-  const query = "SELECT * FROM user WHERE email = ? OR username = ?";
+  const query = "SELECT * FROM users WHERE email = ? OR username = ?";
   db.query(query, [usernameOrEmail, usernameOrEmail], async (err, results) => {
     if (err) {
       console.error(err);
